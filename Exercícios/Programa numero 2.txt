@@ -1,4 +1,4 @@
-﻿ int n = 0 ;
+﻿j int n = 0 ;
             double num = 0;
             double soma = 0;
             double maior = -1;
