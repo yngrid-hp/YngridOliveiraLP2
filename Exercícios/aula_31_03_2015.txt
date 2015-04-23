@@ -1,0 +1,18 @@
+  // Faça um programa que leia x e y e imprima , x elevado a y . Não use a LIB MATH 
+
+
+            int x = 0;
+            int y = 0;
+            int resultado = 1;
+            Console.WriteLine("Digite o valor da base :");
+            x = int.Parse(Console.ReadLine());
+            Console.WriteLine("Digite o valor do expoente:");
+            y = int.Parse(Console.ReadLine());
+            for (int i = 0; i < y; i++)
+            {
+                resultado *= x;
+            }
+            Console.WriteLine("E o valor é {0}", resultado);
+        }
+
+        
