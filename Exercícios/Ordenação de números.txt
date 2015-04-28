@@ -1,0 +1,56 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApplication1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            /*
+             1 - Faça um programa que leia um numero inteiro N . Em seguida leia  N numeros inteiros . O programa deve imprimir os numeros em ordem crescente.
+             */
+            int n;
+            int numero;
+            int aux;
+            Console.WriteLine("Digite o número :");
+            n = int.Parse(Console.ReadLine());
+            int[] numeros = new int[n];
+
+            for (int i = 0; i < n; i++)
+            {
+                Console.WriteLine("Digite os números desejados:");
+                numero = int.Parse(Console.ReadLine());
+                numeros[i] = numero;
+
+            }
+            for (int j = 0; j < n; j++) // J É QUANTAS VEZES EU PERCORRO O ARRAY INTEIRO
+            {
+                for (int k = 0; k < n - 1; k++) 
+                {
+                    if (numeros[k] > numeros[k + 1])
+                    {
+                        aux = numeros[k];
+                        numeros[k] = numeros[k + 1];
+                        numeros[k + 1] = aux;
+                        
+                    }
+                }
+               
+            }
+            for (int z = 0; z <n; z++)
+            {
+                Console.WriteLine(numeros[z]);
+            }
+        }
+
+    }
+}
+
+
+
+
+
