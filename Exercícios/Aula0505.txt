@@ -1,0 +1,69 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApplication1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int cateto1;
+            int cateto2;
+            int hipotenusa;
+            double bravo;
+            int maior = int.MinValue;
+            Console.WriteLine("Digite o número de vetores que desejar:");
+            int n = int.Parse(Console.ReadLine());
+            int x01,x02,y01,y02;
+            int[] x1 = new int[n];
+            int[] y1 = new int[n];
+            int[] x2 = new int[n];
+            int[] y2 = new int[n];
+            int iplisons1 = 0;
+                int xis2 = 0 ;
+                    int xis1 = 0;
+                        int yplision2 = 0;
+            for (int i = 0; i < n; i++)
+            {
+                Console.WriteLine("Digite as informações do vetor número {0}", i + 1);               
+                Console.WriteLine("Digite x1:");
+                x01 = int.Parse(Console.ReadLine());
+                x1[i] = x01;
+                Console.WriteLine("Digite x2:");
+                x02 = int.Parse(Console.ReadLine());
+                x2[i] = x02;
+                Console.WriteLine("Digite y1:");
+                y01 = int.Parse(Console.ReadLine());
+                y1[i] = y01;
+                Console.WriteLine("Digite y2:");
+                y02 = int.Parse(Console.ReadLine());
+                y2[i] = y02;
+            }
+            for (int i = 0; i < n; i++)
+            {
+                
+                cateto1 = (x2[i] - x1[i]) * (x2[i] - x1[i]);
+                cateto2 = (y2[i] - y1[i]) * (y2[i] - y1[i]);
+                hipotenusa = cateto1 + cateto2;
+                
+                if(hipotenusa > maior)
+                {
+                    maior = hipotenusa;
+                    xis1 = x1[i];
+                    xis2 = x2[i];
+                    iplisons1 = y1[i];
+                  yplision2 = y2[i];
+                }
+            }
+            bravo = Math.Sqrt(maior);
+            Console.WriteLine("x1 : {0}", xis1);
+            Console.WriteLine("x2 : {0}", xis2);
+            Console.WriteLine("y1 : {0}", iplisons1);
+            Console.WriteLine("y2 : {0}", yplision2);
+            Console.WriteLine("O tamanho do vetor é  : {0} ", bravo);
+        }
+    }
+}
