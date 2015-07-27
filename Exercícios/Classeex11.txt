@@ -1,0 +1,61 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ex10
+{
+    public class Carro
+    {
+        public string _modelo;
+        public string _marca;
+        public string _placa;
+        public int _capacidade;
+        public int _id;
+
+     public void SetModelo(string n)
+        {
+          if((_modelo.GetType() == typeof(String)) )
+                 _modelo = n;          
+        }
+
+         public string GetModelo()
+        {
+            
+            return _modelo;           
+        }
+        public void SetPlaca(string p)
+        {
+            if((_placa.GetType() == typeof(String)) )
+             _placa = p;           
+        }
+         public double GetPlaca()
+        { 
+           return _placa; 
+
+        }
+          public void SetMarca(string q)
+        {
+           if((_marca.GetType() == typeof(String)) )
+            _marca = q;           
+        }
+         public double GetMarca()
+        {
+           return _marca; 
+
+        }
+       public void SetCapacidade(string q)
+        {
+           if((_capacidade.GetType() == typeof(Int)) )
+            _capacidade = q;           
+        }
+         public double GetMarca()
+        {
+           return _capacidade; 
+
+        }
+     
+       
+  
+        
