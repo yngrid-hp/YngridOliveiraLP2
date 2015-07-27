@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ex10
+namespace ex11
 {
     public class Carro
     {
@@ -13,7 +13,7 @@ namespace ex10
         public string _placa;
         public int _capacidade;
         public int _id;
-
+        public int _passageiros;
      public void SetModelo(string n)
         {
           if((_modelo.GetType() == typeof(String)) )
