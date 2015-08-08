@@ -1,0 +1,97 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace exercicio11
+{
+    public partial class FormCarro : Form
+    {
+        public FormCarro()
+        {
+            InitializeComponent();
+                        
+        }
+         
+          List<Carro> listaCarros = new List<Carro>();
+        }
+
+        
+         private void Add Cadastrar.btn_Click(object sender, EventArgs e)
+                {  
+                     Carro car = new Carro();
+
+                     car._modelo = txtModelo.Text;
+                     string _marca =  txtMarca.Text;
+                     string _placa =  txtPlaca.Text;
+                     int _capacidade = (int.Parse(txtCapacidade.Text)).ToString();;
+                     int _id =  (int.Parse(txtId.Text)).ToString();;
+                     listaCarros.Add(car);
+                }
+              
+          private void btnfimForm_Click(object sender, EventArgs e)
+           {
+                  NovoForm nf = new NovoForm();
+                  nf.ShowDialog();
+           }
+
+            public FormCarro2()
+                {
+            InitializeComponent();
+                         
+               }
+
+        
+           private void btnVerificarForm_Click(object sender, EventArgs e)
+           {
+                 int id =  (int.Parse(txtIdd.Text)).ToString();
+                for(int j =0; j<listaCarros.Length; j++)
+                   {
+                         if(  id == c[j]._id   )
+                      {
+                             c[j]._capacidade=  c[j]._capacidade - 1;
+                             c[j]._passageiros +=1;
+                            tot +=1; 
+                            MessageBox.Show("Você foi adicionado ao carro de ID {0}", id)
+                            txt
+                      }
+                   
+                     else if (  id == c[j]._id && c[j]._capacidade == 0)
+
+                  { 
+  
+                   MessageBox.Show("Esse Carro já está lotado!");
+
+                  }
+                 else
+                     
+                MessageBox.Show("Esse Carro não está Cadastrado.");
+                    
+                    id = int.Parse(Console.ReadLine());
+
+                     }
+            
+          private void btnFimCadastro_Click(object sender, EventArgs e)
+           {
+             
+                     for(int j =0; k <n; k++)
+                      {
+                          txt.Mostrar.Text ("Carro {0}:", i+1 + c[i].GetMarca() "-" + "({1})", c[i].GetPlaca(), "Passageiros:{0}", c[i]._passageiros);
+                          if(c[j]._capacidade == 0)
+                               {
+                                 txt.Mostrar.Text = ("Carro Lotado");
+                               }
+                          else  
+                              {          
+                                           
+                             txt.Mostrar.Text =("Vagas Restantes: {0}", c[i].GetCapacidade());
+                               
+                              }                    
+                             }
+
+             txt.Mostrar.Text("Total de Passageiros na Viagem: {0}", tot);      
