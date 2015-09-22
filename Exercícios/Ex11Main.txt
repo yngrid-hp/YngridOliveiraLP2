@@ -1,0 +1,81 @@
+using System;
+
+namespace ex11
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+
+          int n = int.Parse(Console.ReadLine());
+          List<var> listaCarros = new List<var>();
+
+              for (int i = 0; i < n; i++)
+            {
+                Carro c = new Carro();
+               c.SetModelo(Convert.ToString(Console.ReadLine()));
+               c.SetMarca( Convert.ToString(Console.ReadLine()));
+               c.SetPlaca(Convert.ToString(Console.ReadLine()));
+               c.SetCapacidade(int.Parse(Console.ReadLine()));
+               c._id= i +1;
+               listaCarros.Add(c);
+              
+            }
+                  int tot;
+                  int id= int.Parse(Console.ReadLine());
+                  while( id != -1   )
+{
+                      
+                  for(int j =0; j<n; j++)
+                   {
+                         if(  id == c[j]._id   )
+                      {
+                             c[j]._capacidade=  c[j]._capacidade - 1;
+                             c[j]._passageiros +=1;
+                            tot +=1;
+                      }
+                   
+                     else if (  id == c[j]._id && c[j]._capacidade == 0)
+
+                  { 
+  
+                    Console.WriteLine("Esse Carro já está lotado!")
+
+                  }
+                 else
+                     
+               Console.WriteLine("Esse Carro não está Cadastrado.")
+                    
+                    id = int.Parse(Console.ReadLine());
+
+                     }
+            
+           
+             
+                  if(id == -1)
+
+             {
+                     for(int j =0; k <n; k++)
+                      {
+                          Console.WriteLine("Carro {0}:", i+1 + c[i].GetMarca() "-" + "({1})", c[i].GetPlaca());
+                          Console.WriteLine("Passageiros:{0}", c[i]._passageiros);
+                           if(c[j]._capacidade == 0)
+                               {
+                            Console.WriteLine("Carro Lotado")
+                               }
+                          else  
+                              {                         
+                           Console.WriteLine("Vagas Restantes: {0}", c[i].GetCapacidade());
+                              }                    
+                        }
+
+              Console.WriteLine("Total de Passageiros na Viagem: {0}", tot);
+
+
+
+
+
+
+
+

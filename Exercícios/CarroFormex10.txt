@@ -1,0 +1,56 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace ex10
+{
+    public partial class FormCarro : Form
+    {
+        public FormCarro()
+        {
+            InitializeComponent();
+            
+            
+        }
+        List<object> cadastroCarros = new List<object>();
+       
+        private void Cadastro.btn_Click(object sender, EventArgs e)
+        {
+
+          carro car = new carro;
+
+        car._SetModelo= txtModelo.Text;
+        car._SetPlaca= txtPlaca.Text;
+        car._SetMarca= txtMarca.Text;
+        car._SetAno= (int.Parse(txtAno.Text)).ToString();
+        car._SetKilometragem= (double.Parse(txtKilo.Text)).ToString();
+        car._SetCapaciTanque= (double.Parse(txtCapa.Text)).ToString();
+        car._SetPotencia= (double.Parse(txtPote.Text)).ToString();
+        cadastroCarro.Add(car);
+}
+        private void Buscar.btn_Click(object sender, EventArgs e)
+    {
+          string placa = txtbuscaPlaca.Text;
+       
+         for(int i = 0; int < cadastroCarro.Length; int++)
+{
+
+           if(car.placa == placa)
+           MessageBox.Show("Esse carro já está cadastrado")
+           else
+{
+           MessageBox.Show("Esse carro não está cadastrado")
+}
+}
+}
+
+   }
+
+
+

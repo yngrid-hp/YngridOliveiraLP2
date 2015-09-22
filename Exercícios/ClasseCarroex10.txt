@@ -1,0 +1,99 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ex10
+{
+    public class Carro
+    {
+        
+
+       public string _modelo;
+       public string _placa;
+       public string _marca;
+       public int _ano;
+       public double _kilometragem;
+       public double _capaciTanque;
+       public double _potencia;
+
+
+
+          public void SetModelo(string n)
+        {
+                      if((_modelo.GetType() == typeof(String)) )
+                 _modelo = n;          
+        }
+
+         public string GetModelo()
+        {
+            )
+            return _modelo;           
+        }
+        public void SetPlaca(string p)
+        {
+               if((_placa.GetType() == typeof(String)) )
+             _placa = p;           
+        }
+         public double GetPlaca()
+        { 
+           return _placa; 
+
+        }
+          public void SetMarca(string q)
+        {
+           if((_marca.GetType() == typeof(String)) )
+            _marca = q;           
+        }
+         public double GetMarca()
+        {
+           return _marca; 
+
+        }
+         public void SetAno(int r)
+        {
+            if((_ano.GetType() == typeof(int)) )
+            _ano = r;           
+        }
+         public double GetAno()
+        {
+           return _ano; 
+
+        }
+        public void SetKilometragem(double s)
+        {
+                if((_kilometragem.GetType() == typeof(Double)) )
+            _kilometragem = s;           
+        }
+         public double GetKilometragem()
+        {
+           
+           return _kilometragem; 
+
+        }
+         public void SetCapaciTanque(double t)
+        {
+             if((_capacitanque.GetType() == typeof(Double)) )
+            _capaciTanque = t;           
+        }
+         public double GetCapaciTanque()
+        {
+           return _capaciTanque; 
+
+        }
+         public void Setpotencia(double u)
+        {
+            if((_potencia.GetType() == typeof(double)) )
+            _potencia = u;           
+        }
+         public double GetCapaciTanque()
+        {
+           return _potencia; 
+
+        }
+
+
+
+
+}}}

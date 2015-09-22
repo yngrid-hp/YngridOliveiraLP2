@@ -1,0 +1,64 @@
+(a)
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ex9
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+               int n;
+               List<int> cpf = new List<int>();
+               List<string> nome = new List<string>();
+               List<int> nasc = new List<int>();
+               List<int> adm= new List<int>();
+               List<double> sal = new List<double>();
+
+                 for(int i=0; i<n; i++)
+{
+                  cpf[i]=int.Parse(Console.ReadLine());
+                  nome[i]=Convert.ToString(Console.ReadLine());
+                  nasc[i]=DateTime.Parse(Console.ReadLine());
+                  adm[i]=DateTime.Parse(Console.ReadLine());
+                 sal[i]=double.Parse(Console.ReadLine())
+
+}
+
+                 for(i=o; i<n; i++)
+{               
+                  double salario = sal[i];
+                  double novosalario = salario;
+                 int ano=adm[i].Year;
+
+                  if(ano >= 2014)
+{
+                novosalario+= 423.45;
+}
+                else if(ano >= 2010 && < 2013)
+{
+                novosalario+= (salario*9.84)/100;
+}
+               else if(ano >= 200 && < 2009)
+{
+                novosalario+= (salario*16.4)/100;
+}
+               else if(ano <= 1999)
+{
+                novosalario+= (salario*22.6)/100;
+}
+
+
+               Console.WriteLine("Nome: " + nome[i]);
+                Console.WriteLine("CPF: " + cpf[i]);
+                Console.WriteLine("Data de Nascimento: " + nas[i]);
+                Console.WriteLine("Data de Admissão: " +adm[i];
+                Console.WriteLine("Salário: " + salario);
+                Console.WriteLine("Novo Salário: " + novosalario);
+}
+
