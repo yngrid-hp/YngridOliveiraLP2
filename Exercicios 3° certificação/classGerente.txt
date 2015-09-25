@@ -1,0 +1,29 @@
+namespace ExFunc
+{
+    class Gerente : FuncEmpresa
+    {
+        FuncEmpresa f = new FuncEmpresa();
+
+        private string _ramo;
+
+        public string Ramo { get; set; }
+        public double vale_alimentacao()
+        {
+            double valeAlimentacao = Sal() * 0.08;
+            
+            if (valeAlimentacao > 750)
+            {
+                valeAlimentacao = 750;
+            }
+
+            return valeAlimentacao;
+        }
+        public double Sal()
+        {
+            double sal = f.Salario() + 4000;
+            return sal;
+        }
+
+        
+    }
+}
