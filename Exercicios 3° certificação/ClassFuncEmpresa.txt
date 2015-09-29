@@ -1,0 +1,24 @@
+namespace ExFunc
+{
+    class FuncDaEmpresa : Funcionario
+    {
+        private double _sal = 5000;
+
+        public virtual double Salario()
+        {
+            return _salario;
+        }
+
+        public virtual double vale_alimentacao()
+        {
+            double _alimentacao = _salario * (6.5 / 100);
+
+            if (_alimentacao > 750)
+            {
+                _alimentacao = 750;
+            }
+
+            return _alimentacao;
+        }
+    }
+}

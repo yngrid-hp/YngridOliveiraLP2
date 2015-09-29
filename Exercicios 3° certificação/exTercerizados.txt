@@ -1,0 +1,9 @@
+namespace ExFunc
+{
+    class Terceirizado : Func
+    {
+        private string _cnpj;
+
+        public string Cnpj { get; set; }
+    }
+}
