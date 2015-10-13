@@ -12,16 +12,7 @@ namespace Ex13102015
     class Program
     {
 
-        public static void bloco(string str)
-        {
-            string strConn = "Server=localhost;Database=test;Uid=root;Pwd=";
-            MySqlConnection conn = new MySqlConnection(strConn);
-            MySqlCommand command = new MySqlCommand();
-            command.Connection = conn;
-            string n = Console.ReadLine();
-            command.CommandText = str;
-            conn.Open();
-        }
+        
                 
         public static void Cadastro()
         {    
@@ -83,9 +74,24 @@ namespace Ex13102015
 
 
         }  
+      }
+          public void Bloco()
+          {
+            string strConn = "Server=localhost;Database=test;Uid=root;Pwd=";
+            MySqlConnection conn = new MySqlConnection(strConn);
+            MySqlCommand command = new MySqlCommand();
+            command.Connection = conn;
+            string n = Console.ReadLine();
+            
+            if (option == 1)
+            {    command.CommandText = str;
+                 conn.Open();
+                 command.ExecuteNonQuery();
+                
+            }
+        }
 
-
-
+    
 
 
         }
