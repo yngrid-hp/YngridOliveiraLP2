@@ -89,9 +89,11 @@ System.Globalization;
                  else if Console.WriteLine("Sem Resultados");
                  conn.Close();
                  
-                 else if ConsultaComNome();
-                           
-                      {    command.CommandText = ConsultaComNome();
+                       else if                        
+                      {    
+
+                          ConsultaComNome();
+                          command.CommandText = ConsultaComNome();
                           conn.Open();
                           MySqlDataReader reader = cnd.ExecuteReader()
                           if(Reader.HasRows())
@@ -99,6 +101,12 @@ System.Globalization;
                            while (Reader.Read && Nome==nome)
                         {  
                            pessoa p = new pessoa;
+                            p.Id = reader.GetInt32(0)
+                            p.Nome = reader.GetString(1)
+                            p.Sobrenome = reader.GetString(2)
+                            p.Peso= reader.GetDouble(3)
+                            p.Altura= reader.GetIDouble(4)
+                            p.Telefone= reader.GetString(5)
                            Console.WriteLine("ID{0}", reader.GetInt32(0));
                            Console.WriteLine("Nome{0}", reader.GetString(1));
                            Console.WriteLine("Sobrenome{0}", reader.GetString(2));
@@ -106,8 +114,20 @@ System.Globalization;
                            Console.WriteLine("Altura{0}", reader.GetDouble(4));
                            Console.WriteLine("Telefone{0}", reader.GetString(5));  
                             pessoa.Add(p);
+                             Console.WriteLine("Insira a posição do registro desejado:");
+                              int j = int.Parse(Console.ReadLine());
+                            for(int i=0; i<p.Length, i++)
+                          {
+                                 if(j == p[i])
+                                   {
+                                       Console.WriteLine(p);
+
+                                   }
+
+                           }
                            
                        }
+                        
                  }
 
                 else if Console.WriteLine("Sem Resultados");
