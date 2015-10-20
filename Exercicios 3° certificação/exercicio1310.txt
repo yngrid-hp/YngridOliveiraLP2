@@ -61,7 +61,7 @@ System.Globalization;
                  command.ExecuteNonQuery();
                  conn.Close(); 		 
 	          }
-              else
+              else~
                {   
                  
                  Console.WriteLine("Insira 1 para pesquisar por id e 2 para pesquisar por nome");
