@@ -4,46 +4,15 @@ System.Globalization;
     class Program
     {
 
-        
-                
-        public static void Cadastro()
-        {    
-            Console.WriteLine("Insira o nome da pessoa");
-            string nome = Console.ReadLine();
-            Console.WriteLine("Insira o sobrenome");
-            string sobrenome = Console.ReadLine();
-            Console.WriteLine("Insira o Peso");
-            double peso = double.Parse(Console.ReadLine());
-            Console.WriteLine("Insira a altura");
-            double altura = double.Parse(Console.ReadLine());
-            Console.WriteLine("Insira o telefone");
-            int telefone = int.Parse(Console.ReadLine());
-            string str = string.Format(new CultureInfo("en") "insert into Pessoa (NOME, SOBRENOME, PESO, ALTURA, TELEFONE) Valus ('{0}, {1}, {2}, {3}, {4}, {5}'),", nome, sobrenome, peso, altura, telefone);
-            
-        }
-
-        public static void ConsultaComId()
-        {
-            Console.WriteLine("insira o id:");
-            int id = int.Parse(Console.ReadLine());
-            string str = string.Format("Select {0} into id FROM Pessoa", id);
-
-        }
-        public static void ConsultaComNome()
-        {
-            Console.WriteLine("insira o nome:");
-            string nome = Console.ReadLine();
-            string str = string.Format("Select {0} into Nome FROM Pessoa", nome);
-
-        }
-        
+      
         static void Main(string[] args)
         {
-
+                
              var pessoas = new List<pessoa>();
             Console.WriteLine("Insira 1 para cadastrar, 2 para consultar e 0 para saír: ");
             int option = int.Parse(Console.ReadLine());
             string strConn = "Server=localhost;Database=test;Uid=root;Pwd=";
+             conn.Open();
             MySqlConnection conn = new MySqlConnection(strConn);
             MySqlCommand command = new MySqlCommand();
             command.Connection = conn;
@@ -56,80 +25,98 @@ System.Globalization;
               if (option==1)
 	          {
                    
-                 command.CommandText = Cadastro();
-                 conn.Open();
-                 command.ExecuteNonQuery();
-                 conn.Close(); 		 
+                   Pessoa p = new Pessoa();
+                    p.Nome = Console.ReadLine();
+                    p.Sobrenome = Console.ReadLine();
+                    p.Peso = double.Parse(Console.ReadLine());
+                    p.Altura = double.Parse(Console.ReadLine());
+                    p.Telefone = Console.ReadLine();
+                     pessoas.Add(p);
+                    string query = String.Format(new CultureInfo("en"), "INSERT INTO pessoa (Nome, Sobrenome, Peso, Altura, Telefone) VALUES ('{0}', '{1}', {2}, {3}, '{4}')", p.Nome, p.Sobrenome, p.Peso, p.Altura, p.Telefone); 
+                    command.CommandText = query;
+                    command.ExecuteNonQuery();                  		  
 	          }
-              else~
-               {   
+                            else if (opcao == 2)
+                          {   
                  
-                 Console.WriteLine("Insira 1 para pesquisar por id e 2 para pesquisar por nome");
-                 int num = int.Parse(Console.ReadLine());
-                 if (num == 1)
-                 {
+                              Console.WriteLine("Insira 1 para pesquisar por nome e 2 para pesquisar por id");                 
+                               int num = int.Parse(Console.ReadLine());}
+                               if (num == 1)
+                             {
                  
-                 command.CommandText = ConsultaComId();
-                 conn.Open();
-                 MySqlDataReader reader = cnd.ExecuteReader()
-                 if(Reader.HasRows())
-                 { 
-                      if (Id==id)
+                  Console.WriteLine("Digite o nome: ");
+                  string nome = Console.ReadLine();
+                  string str = string.Format("SELECT * FROM pessoa WHERE Nome = '{0}'", nome);
+                  command.CommandText = str;
+                 
+                 MySqlDataReader reader = cnd.ExecuteReader();
+                              
+                    
+                        if (reader.HasRows)
                         {
-                           Console.WriteLine("ID{0}", reader.GetInt32(0));
-                           Console.WriteLine("Nome{0}", reader.GetString(1));
-                           Console.WriteLine("Sobrenome{0}", reader.GetString(2));
-                           Console.WriteLine("Peso{0}", reader.GetDouble(3));
-                           Console.WriteLine("Altura{0}", reader.GetDouble(4));
-                           Console.WriteLine("Telefone{0}", reader.GetString(5));
+                            while (reader.Read())
+                            {
+                                Console.WriteLine("id:{0}  nome:{1} ",  reader.GetInt32(0), reader.GetString(1));
+                                
+                            }
+                            reader.Close();
+                            } 
+                              }
 
-                        }
+                            Console.WriteLine("Digite o id do registro desejado: ");
+                            int id_n = int.Parse(Console.ReadLine());
 
-                 }
-                 else if Console.WriteLine("Sem Resultados");
-                 conn.Close();
-                 
-                       else if                        
-                      {    
+                                 if (id_n != 0)
+                                    {
+                                
+                                string strr = string.Format("SELECT * FROM pessoa WHERE Id = {0}", id_n);
+                                command.CommandText = str;
+                                reader = command.ExecuteReader();
 
-                          ConsultaComNome();
-                          command.CommandText = ConsultaComNome();
-                          conn.Open();
-                          MySqlDataReader reader = cnd.ExecuteReader()
-                          if(Reader.HasRows())
-                          
-                           while (Reader.Read && Nome==nome)
-                        {  
-                           pessoa p = new pessoa;
-                            p.Id = reader.GetInt32(0)
-                            p.Nome = reader.GetString(1)
-                            p.Sobrenome = reader.GetString(2)
-                            p.Peso= reader.GetDouble(3)
-                            p.Altura= reader.GetIDouble(4)
-                            p.Telefone= reader.GetString(5)
-                           Console.WriteLine("ID{0}", reader.GetInt32(0));
-                           Console.WriteLine("Nome{0}", reader.GetString(1));
-                           Console.WriteLine("Sobrenome{0}", reader.GetString(2));
-                           Console.WriteLine("Peso{0}", reader.GetDouble(3));
-                           Console.WriteLine("Altura{0}", reader.GetDouble(4));
-                           Console.WriteLine("Telefone{0}", reader.GetString(5));  
-                            pessoa.Add(p);
-                             Console.WriteLine("Insira a posição do registro desejado:");
-                              int j = int.Parse(Console.ReadLine());
-                            for(int i=0; i<p.Length, i++)
-                          {
-                                 if(j == p[i])
-                                   {
-                                       Console.WriteLine(p);
+                                if (reader.Read())
+                                {
+                                    Console.WriteLine("id:{0}  nome:{1}  sobrenome:{2}  peso:{3}  altura:{4}  tel:{5}",  reader.GetInt32(0), reader.GetString(1), reader.GetString(2),
+                                         reader.GetDouble(3), reader.GetDouble(4), reader.GetString(5));
+                                       
+                                }
+                                reader.Close();
+                               }
+                                 if (id_n == 0)
 
-                                   }
+                                 {
+                                         Console.WriteLine("id inválido. Insira 1 para cadastrar, 2 para consultar e 0 para saír: ");
 
-                           }
-                           
-                       }
+                                 }
+
+                else Console.WriteLine("Sem Resultados. Insira 1 para cadastrar, 2 para consultar e 0 para saír: ");
+                     
+                     else if (num == 2)
+                    {
                         
-                 }
 
-                else if Console.WriteLine("Sem Resultados");
-                 conn.Close();
+                        Console.WriteLine("Digite o id: ");
+                        int id = int.Parse(Console.ReadLine());
+                       
+                        string str = string.Format("SELECT * FROM pessoa WHERE Id = '{0}'", id);
+                        command.CommandText = str;
+
+                        MySqlDataReader reader = command.ExecuteReader();
+
+                        if (reader.HasRows)
+                        {
+                            while (reader.Read())
+                            {
+                                Console.WriteLine("id:{0}  nome:{1}  sobrenome:{2}  peso:{3}  altura:{4}  tel:{5}", reader.GetInt32(0), reader.GetString(1), reader.GetString(2),
+                                                   reader.GetDouble(3), reader.GetDouble(4), reader.GetString(5));
+                                                  
+                            }
+                        }
+                       }
+                        else  Console.WriteLine("Id inexistente. Insira 1 para cadastrar, 2 para consultar e 0 para saír: ");
+                        
+                                                                               
+        }
+    }
+}
+                 
            
