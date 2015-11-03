@@ -1,0 +1,122 @@
+namespace Ex13102015
+System.Globalization;
+{
+    class Program
+    {
+
+      
+        static void Main(string[] args)
+        {
+                
+             var pessoas = new List<pessoa>();
+            Console.WriteLine("Insira 1 para cadastrar, 2 para consultar e 0 para saír: ");
+            int option = int.Parse(Console.ReadLine());
+            string strConn = "Server=localhost;Database=test;Uid=root;Pwd=";
+             conn.Open();
+            MySqlConnection conn = new MySqlConnection(strConn);
+            MySqlCommand command = new MySqlCommand();
+            command.Connection = conn;
+            string n = Console.ReadLine();
+
+          while(option != 0)
+          {
+
+          
+              if (option==1)
+	          {
+                   
+                   Pessoa p = new Pessoa();
+                    p.Nome = Console.ReadLine();
+                    p.Sobrenome = Console.ReadLine();
+                    p.Peso = double.Parse(Console.ReadLine());
+                    p.Altura = double.Parse(Console.ReadLine());
+                    p.Telefone = Console.ReadLine();
+                     pessoas.Add(p);
+                    string query = String.Format(new CultureInfo("en"), "INSERT INTO pessoa (Nome, Sobrenome, Peso, Altura, Telefone) VALUES ('{0}', '{1}', {2}, {3}, '{4}')", p.Nome, p.Sobrenome, p.Peso, p.Altura, p.Telefone); 
+                    command.CommandText = query;
+                    command.ExecuteNonQuery();                  		  
+	          }
+                            else if (opcao == 2)
+                          {   
+                 
+                              Console.WriteLine("Insira 1 para pesquisar por nome e 2 para pesquisar por id");                 
+                               int num = int.Parse(Console.ReadLine());}
+                               if (num == 1)
+                             {
+                 
+                  Console.WriteLine("Digite o nome: ");
+                  string nome = Console.ReadLine();
+                  string str = string.Format("SELECT * FROM pessoa WHERE Nome = '{0}'", nome);
+                  command.CommandText = str;
+                 
+                 MySqlDataReader reader = cnd.ExecuteReader();
+                              
+                    
+                        if (reader.HasRows)
+                        {
+                            while (reader.Read())
+                            {
+                                Console.WriteLine("id:{0}  nome:{1} ",  reader.GetInt32(0), reader.GetString(1));
+                                
+                            }
+                            reader.Close();
+                            } 
+                              }
+
+                            Console.WriteLine("Digite o id do registro desejado: ");
+                            int id_n = int.Parse(Console.ReadLine());
+
+                                 if (id_n != 0)
+                                    {
+                                
+                                string strr = string.Format("SELECT * FROM pessoa WHERE Id = {0}", id_n);
+                                command.CommandText = str;
+                                reader = command.ExecuteReader();
+
+                                if (reader.Read())
+                                {
+                                    Console.WriteLine("id:{0}  nome:{1}  sobrenome:{2}  peso:{3}  altura:{4}  tel:{5}",  reader.GetInt32(0), reader.GetString(1), reader.GetString(2),
+                                         reader.GetDouble(3), reader.GetDouble(4), reader.GetString(5));
+                                       
+                                }
+                                reader.Close();
+                               }
+                                 if (id_n == 0)
+
+                                 {
+                                         Console.WriteLine("id inválido. Insira 1 para cadastrar, 2 para consultar e 0 para saír: ");
+
+                                 }
+
+                else Console.WriteLine("Sem Resultados. Insira 1 para cadastrar, 2 para consultar e 0 para saír: ");
+                     
+                     else if (num == 2)
+                    {
+                        
+
+                        Console.WriteLine("Digite o id: ");
+                        int id = int.Parse(Console.ReadLine());
+                       
+                        string str = string.Format("SELECT * FROM pessoa WHERE Id = '{0}'", id);
+                        command.CommandText = str;
+
+                        MySqlDataReader reader = command.ExecuteReader();
+
+                        if (reader.HasRows)
+                        {
+                            while (reader.Read())
+                            {
+                                Console.WriteLine("id:{0}  nome:{1}  sobrenome:{2}  peso:{3}  altura:{4}  tel:{5}", reader.GetInt32(0), reader.GetString(1), reader.GetString(2),
+                                                   reader.GetDouble(3), reader.GetDouble(4), reader.GetString(5));
+                                                  
+                            }
+                        }
+                       }
+                        else  Console.WriteLine("Id inexistente. Insira 1 para cadastrar, 2 para consultar e 0 para saír: ");
+                        
+                                                                               
+        }
+    }
+}
+                 
+           
